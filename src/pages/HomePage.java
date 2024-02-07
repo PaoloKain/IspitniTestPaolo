@@ -10,7 +10,8 @@ public class HomePage extends BasePage {
 
     String baseUrl = "https://magento.softwaretestingboard.com/";
     By itemImageBy = By.xpath("//img[@class='product-image-photo']");
-
+    By createAnAccountBtnBy = By.xpath("//a[@href='https://magento.softwaretestingboard.com/customer/account/create/']");
+    By welcomeUserBy = By.xpath("//span[@class='logged-in']");
     public HomePage goToHomePage(){
         driver.get(baseUrl);
         return this;
@@ -20,5 +21,16 @@ public class HomePage extends BasePage {
         int actualNumberOfProducts = countNumberOfElements(itemImageBy);
         verifyNumberOfElements(expectedNumberOfProducts, actualNumberOfProducts);
         return this;
+    }
+
+    public HomePage navigateToCreateNewAccountPage(){
+        clickElement(createAnAccountBtnBy);
+        return this;
+    
+    }
+
+    public HomePage verifySuccessfulAccountCreation(){
+        verifyElementIsVisible(welcomeUserBy);
+         return this;
     }
 }
