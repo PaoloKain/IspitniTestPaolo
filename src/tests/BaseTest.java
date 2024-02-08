@@ -7,6 +7,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseTest {
     public WebDriver driver;
+
+    String validEmail = "marko@mts.rs";
+    String validPassword = "marko 123";
     
 
     @Before
