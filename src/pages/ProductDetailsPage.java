@@ -12,7 +12,9 @@ public class ProductDetailsPage extends BasePage {
     By addToCartBtnBy = By.id("product-addtocart-button");
     By itemQuantityBy = By.id("qty");
     String itemQuantity = "1";
-
+    By shoppingCartBtnBy = By.xpath("//a[@class='action showcart']");
+    By messageItemInCart = By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+    By shoppingBtnBy = By.xpath("//a[@href='https://magento.softwaretestingboard.com/checkout/cart/']");
     public ProductDetailsPage addItemToCart(){
         clickElement(itemSizeBtnBy);
         clickElement(itemColorBtnBy);
@@ -21,4 +23,19 @@ public class ProductDetailsPage extends BasePage {
         return this;
     }
     
+    public ProductDetailsPage clikOnCartBtn(){
+        clickElement(shoppingCartBtnBy);
+        return this;
+    }
+
+    public ProductDetailsPage verifyItemIsInCart(String expectedMessageItemIncart){
+        String acutalItemName = readText(messageItemInCart);
+        verifyTextIsTheSame(expectedMessageItemIncart, acutalItemName);
+        return this;
+    }
+
+    public ProductDetailsPage navigateToCheckOut(){
+        clickElement(shoppingBtnBy);
+        return this;
+    }
 }

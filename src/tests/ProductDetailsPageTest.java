@@ -7,10 +7,11 @@ import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.WhatsNewPage;
 
-public class CartPageTest extends BaseTest{
+public class ProductDetailsPageTest extends BaseTest{
 
     
     String postalCode = "1234";
+    String expectedMessgaeitemInCart = "You added Stellar Solar Jacket to your shopping cart.";
 
 
     @Test
@@ -26,6 +27,8 @@ public class CartPageTest extends BaseTest{
          homePage.navigateToWhatsNewPage();
          whatsNewPage.openProductDetailsPage();
          productDetailsPage. addItemToCart();
+         productDetailsPage.clikOnCartBtn();
+         productDetailsPage.verifyItemIsInCart(expectedMessgaeitemInCart);
     }
 
     
