@@ -2,13 +2,13 @@ package tests;
 
 import org.junit.Test;
 
+import pages.CartPage;
 import pages.CustomerLoginPage;
 import pages.HomePage;
 import pages.ProductDetailsPage;
-import pages.ShippingPage;
 import pages.WhatsNewPage;
 
-public class ReviewAndPaymentsPageTest extends BaseTest {
+public class CartPageTest extends BaseTest {
     
 
     @Test
@@ -17,7 +17,8 @@ public class ReviewAndPaymentsPageTest extends BaseTest {
          WhatsNewPage whatsNewPage = new WhatsNewPage(driver);
          CustomerLoginPage customerLoginPage = new CustomerLoginPage(driver);
          ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
-         ShippingPage shippingPage = new ShippingPage(driver);
+         CartPage cartPage = new CartPage(driver);
+         
 
          homePage.goToHomePage();
          homePage.navigateToCustomerLoginPage();
@@ -25,7 +26,9 @@ public class ReviewAndPaymentsPageTest extends BaseTest {
          homePage.navigateToWhatsNewPage();
          whatsNewPage.openProductDetailsPage();
          productDetailsPage. addItemToCart();
-         productDetailsPage.navigateToCheckOut();
+         productDetailsPage.navigateToCartPage();
+         cartPage.extendShippingAndTaxOption();
+         cartPage.addTax();
          
          
          

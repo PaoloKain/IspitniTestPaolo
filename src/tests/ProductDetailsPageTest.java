@@ -27,7 +27,7 @@ public class ProductDetailsPageTest extends BaseTest{
          homePage.navigateToWhatsNewPage();
          whatsNewPage.openProductDetailsPage();
          productDetailsPage. addItemToCart();
-         productDetailsPage.clikOnCartBtn();
+         productDetailsPage.clickOnCartBtn();
          productDetailsPage.verifyItemIsInCart(expectedMessgaeitemInCart);
     }
 

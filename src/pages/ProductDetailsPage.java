@@ -14,7 +14,7 @@ public class ProductDetailsPage extends BasePage {
     String itemQuantity = "1";
     By shoppingCartBtnBy = By.xpath("//a[@class='action showcart']");
     By messageItemInCart = By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
-    By shoppingBtnBy = By.xpath("//a[@href='https://magento.softwaretestingboard.com/checkout/cart/']");
+    By cartBtnBy = By.xpath("//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div/a");
     public ProductDetailsPage addItemToCart(){
         clickElement(itemSizeBtnBy);
         clickElement(itemColorBtnBy);
@@ -23,7 +23,7 @@ public class ProductDetailsPage extends BasePage {
         return this;
     }
     
-    public ProductDetailsPage clikOnCartBtn(){
+    public ProductDetailsPage clickOnCartBtn(){
         clickElement(shoppingCartBtnBy);
         return this;
     }
@@ -34,8 +34,8 @@ public class ProductDetailsPage extends BasePage {
         return this;
     }
 
-    public ProductDetailsPage navigateToCheckOut(){
-        clickElement(shoppingBtnBy);
+    public ProductDetailsPage navigateToCartPage(){
+        clickElement(cartBtnBy);
         return this;
     }
 }
