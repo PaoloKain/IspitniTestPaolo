@@ -29,21 +29,7 @@ public class CustomerLoginTest extends BaseTest {
         customerLoginPage.login(validEmail, validPassword);
         homePage.verifySuccessfulLogin();
         
-         
-    }
-
-    @Test
-    public void verifySuccessfulLogout(){
-        HomePage homePage = new HomePage(driver);
-        CustomerLoginPage customerLoginPage = new CustomerLoginPage(driver);
-
-        homePage.goToHomePage();
-        homePage.navigateToCustomerLoginPage();
-        customerLoginPage.login(validEmail, validPassword);
-        
-        
-    }
-
+        }
     @Test
     public void verifyUnsuccessfulLoginEmptyEmail(){
         HomePage homePage = new HomePage(driver);
@@ -87,6 +73,18 @@ public class CustomerLoginTest extends BaseTest {
         homePage.navigateToCustomerLoginPage();
         customerLoginPage.login(wrongCredentials, wrongCredentials);
         customerLoginPage. verifyUnsuccessfulLoginWrongCredentials(expectedErrorMessageWrongCredentials);
+    }
+
+    @Test
+    public void verifySuccessfulLogout(){
+        HomePage homePage = new HomePage(driver);
+        CustomerLoginPage customerLoginPage = new CustomerLoginPage(driver);
+
+        homePage.goToHomePage();
+        homePage.navigateToCustomerLoginPage();
+        customerLoginPage.login(validEmail, validPassword);
+        homePage.logout();
+
     }
 
     

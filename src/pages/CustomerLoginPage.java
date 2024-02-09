@@ -18,6 +18,7 @@ public class CustomerLoginPage extends BasePage {
     By errorMessageWrongCredentialsBy = By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
     By forgotYourPasswordBtnBy = By.xpath("//a[@href='https://magento.softwaretestingboard.com/customer/account/forgotpassword/']");
     By passwordResetMessageBy = By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+    
     public CustomerLoginPage login(String email, String password){
         enterText(emailInputBy, email);
         enterText(passwordInputBy, password);
