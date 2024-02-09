@@ -9,6 +9,10 @@ import pages.ProductDetailsPage;
 import pages.WhatsNewPage;
 
 public class CartPageTest extends BaseTest {
+
+    double expectedPrice = 75.00;
+    double expectedTax = 5.00;
+    double expectedTotalPrice = 80.00;
     
 
     @Test
@@ -29,6 +33,7 @@ public class CartPageTest extends BaseTest {
          productDetailsPage.navigateToCartPage();
          cartPage.extendShippingAndTaxOption();
          cartPage.addTax();
+         cartPage. verifyPrice(expectedPrice + expectedTax, expectedTotalPrice);
          
          
          
