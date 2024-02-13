@@ -27,26 +27,26 @@ public class CustomerLoginPage extends BasePage {
     }
 
     public CustomerLoginPage verifyUnsuccessfulLoginEmptyEmail(String expectedErrorMessageEmptyEmail){
-        String actualErrorMessage = readText(errorMessageEmptyEmailBy);
-        verifyTextIsTheSame(expectedErrorMessageEmptyEmail, actualErrorMessage);
+        String actualErrorMessageEmptyEmail = readText(errorMessageEmptyEmailBy);
+        verifyTextIsTheSame(expectedErrorMessageEmptyEmail, actualErrorMessageEmptyEmail);
         return this;
     }
 
     public CustomerLoginPage verifyUnsuccessfulLogninEmptyPassword(String expectedErrorMessageEmptyPassword){
-        String actualErrorMessage = readText(errorMessageEmptyPasswordBy);
-        verifyTextIsTheSame(expectedErrorMessageEmptyPassword, actualErrorMessage);
+        String actualErrorMessageEmptyPassword = readText(errorMessageEmptyPasswordBy);
+        verifyTextIsTheSame(expectedErrorMessageEmptyPassword, actualErrorMessageEmptyPassword);
         return this;
     }
     
     public CustomerLoginPage verifyUnsuccessfulLoginIncorrectEmail(String expectedErrorMessageIncorrectEmail){
-        String actualErrorMessage = readText(errorMessageIncorrectEmailBy);
-        verifyTextIsTheSame(expectedErrorMessageIncorrectEmail, actualErrorMessage);
+        String actualErrorMessageIncorrectEmail = readText(errorMessageIncorrectEmailBy);
+        verifyTextIsTheSame(expectedErrorMessageIncorrectEmail, actualErrorMessageIncorrectEmail);
         return this;
     }
 
     public CustomerLoginPage verifyUnsuccessfulLoginWrongCredentials(String expectedErrorMessageWrongCredentials){
-        String acutalErrorMessage = readText(errorMessageWrongCredentialsBy);
-        verifyTextIsTheSame(expectedErrorMessageWrongCredentials, acutalErrorMessage);
+        String acutalErrorMessageWrongCredentials = readText(errorMessageWrongCredentialsBy);
+        verifyTextIsTheSame(expectedErrorMessageWrongCredentials, acutalErrorMessageWrongCredentials);
         return this;
     }
 

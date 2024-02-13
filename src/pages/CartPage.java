@@ -23,14 +23,17 @@ public class CartPage extends BasePage {
         return this;
     }
 
-    public CartPage verifyItemPrice(){
+
+    public CartPage verifyItemPrice(double expectedPrice, double expectedTax, double expectedTotalPrice){
         String priceText = readText( itemPriceBy).substring(1);
         double actualPrice = covertTextToNumber(priceText);
         String taxText = readText( taxCostBy).substring(1);
         double actualTax = covertTextToNumber(taxText);
         String totalText = readText(totalPriceBy).substring(1);
-        double actualTotal = covertTextToNumber(totalText); 
-        verifyPrice(actualPrice + actualTax, actualTotal);
+        double actualTotal = covertTextToNumber(totalText);
+        expectedTotalPrice = expectedPrice + expectedTax;
+        actualTotal = actualPrice + actualTax;
+        verifyPrice(expectedTotalPrice, actualTotal);
         return this;
     }
     

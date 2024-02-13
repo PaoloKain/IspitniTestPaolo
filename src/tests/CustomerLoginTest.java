@@ -16,7 +16,7 @@ public class CustomerLoginTest extends BaseTest {
     String expectedErrorMessageEmptyPassword = "This is a required field.";
     String expectedErrorMessageIncorrectEmail = "Please enter a valid email address (Ex: johndoe@domain.com).";
     String expectedErrorMessageWrongCredentials = "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.";
-    
+    String expectedMessage = "If there is an account associated with marko@mts.rs you will receive an email with a link to reset your password.";
     
 
     @Test
@@ -85,6 +85,19 @@ public class CustomerLoginTest extends BaseTest {
         customerLoginPage.login(validEmail, validPassword);
         homePage.logout();
 
+    }
+
+    @Test
+    public void resetYourPasswordOption(){
+         HomePage homePage = new HomePage(driver);
+        CustomerLoginPage customerLoginPage = new CustomerLoginPage(driver);
+        ForgotYourPasswordPage forgotYourPasswordPage = new ForgotYourPasswordPage(driver);
+
+        homePage.goToHomePage();
+        homePage.navigateToCustomerLoginPage();
+        customerLoginPage. navigateToForgotYourPasswordPage();
+        forgotYourPasswordPage.resetMyPassword(validEmail);
+        customerLoginPage.verifySuccessfulPasswordReset(expectedMessage);
     }
 
     
