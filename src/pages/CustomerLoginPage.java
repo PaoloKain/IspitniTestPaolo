@@ -60,4 +60,9 @@ public class CustomerLoginPage extends BasePage {
        verifyTextIsTheSame(expectedMessage, actualMessage);
         return this;
     }
+
+    public CustomerLoginPage verifySuccessfulLogout(){
+        verifyElementIsVisible(signInBtnBy);
+        return this;
+    }
 }

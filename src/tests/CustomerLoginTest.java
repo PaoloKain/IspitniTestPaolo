@@ -1,12 +1,16 @@
 package tests;
 
+import java.time.Duration;
+
 import org.junit.Test;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.CustomerLoginPage;
 import pages.ForgotYourPasswordPage;
 import pages.HomePage;
 
 public class CustomerLoginTest extends BaseTest {
+
 
     String validEmail = "marko@mts.rs";
     String validPassword = "marko 123";
@@ -18,6 +22,7 @@ public class CustomerLoginTest extends BaseTest {
     String expectedErrorMessageWrongCredentials = "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.";
     String expectedMessage = "If there is an account associated with marko@mts.rs you will receive an email with a link to reset your password.";
     
+   
 
     @Test
     public void verifySuccessfulLogin(){
@@ -83,7 +88,11 @@ public class CustomerLoginTest extends BaseTest {
         homePage.goToHomePage();
         homePage.navigateToCustomerLoginPage();
         customerLoginPage.login(validEmail, validPassword);
+        
         homePage.logout();
+        
+
+        //customerLoginPage.verifySuccessfulLogout();
 
     }
 

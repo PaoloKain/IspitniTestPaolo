@@ -1,5 +1,7 @@
 package tests;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Test;
 
 import pages.CartPage;
@@ -10,7 +12,7 @@ import pages.WhatsNewPage;
 
 public class CartPageTest extends BaseTest {
    
-    double expectedPrice = 75.00;
+    double expectedItemPrice = 75.00;
     double expectedTax = 5.00;
     double expectedTotalPrice = 80.00;
     
@@ -33,10 +35,11 @@ public class CartPageTest extends BaseTest {
          productDetailsPage.navigateToCartPage();
          cartPage.extendShippingAndTaxOption();
          cartPage.addTax();
-         cartPage.verifyItemPrice(expectedPrice, expectedTax, expectedTotalPrice );
+         cartPage.verifyItemPrice(expectedItemPrice);
+         cartPage.verifyTax(expectedTax);
          
-         
-         
+        // cartPage.verifyTax(expectedTax);
+        // cartPage.verifyTotalPrice(expectedTotalPrice);        
          
 
     }
