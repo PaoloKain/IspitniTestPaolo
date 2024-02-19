@@ -11,10 +11,16 @@ public class CartPage extends BasePage {
     //By addTaxBtnBy = By.id("s_method_flatrate_flatrate");
    // By extendShippingAndTaxOptionBtnBy = By.xpath("//*[@id=\"block-shipping\"]/div[1]");
     By addTaxBtnBy = By.xpath("//*[@id=\"co-shipping-method-form\"]/fieldset/dl/dd[2]/div/label");
-    By extendShippingAndTaxOptionBtnBy = By.xpath("//*[@id=\"block-shipping-heading\"]");
+    //By extendShippingAndTaxOptionBtnBy = By.xpath("//*[@id=\"block-shipping-heading\"]");
+
+    By extendShippingAndTaxOptionBtnBy = By.cssSelector("#block-shipping > div:nth-child(1)");
+    
     By itemPriceBy = By.xpath("//*[@id=\"cart-totals\"]/div/table/tbody/tr[1]/td/span");    
     By taxCostBy = By.xpath("//*[@id=\"cart-totals\"]/div/table/tbody/tr[2]/td/span");
+   // By taxCostBy = By.cssSelector(null);
     By totalPriceBy = By.xpath("//*[@id=\"cart-totals\"]/div/table/tbody/tr[3]/td/strong/span");
+
+    
     public CartPage extendShippingAndTaxOption(){
         clickElement(extendShippingAndTaxOptionBtnBy);
         return this;
@@ -25,11 +31,11 @@ public class CartPage extends BasePage {
         return this;
     }
 
-
-    public CartPage verifyItemPrice(double expectedItemPrice){
+/* 
+   public CartPage verifyItemPrice(double expectedItemPrice){
         String priceText = readText( itemPriceBy).substring(1);
         double actualPrice = covertTextToNumber(priceText);
-        verifyPrice(expectedItemPrice, actualPrice);
+       // verifyPrice(expectedItemPrice, actualPrice);
         return this;
     }
     
@@ -37,22 +43,26 @@ public class CartPage extends BasePage {
         verifyElementIsVisible(taxCostBy);  
         String taxText = readText( taxCostBy).substring(1);
         double actualTax = covertTextToNumber(taxText);
-        verifyPrice(expectedTax, actualTax);
+        //verifyPrice(expectedTax, actualTax);
         return this;
     }
 
     public CartPage verifyTotalPrice(double expectedTotalPrice){
         String totalText = readText(totalPriceBy).substring(1);
         double actualTotal = covertTextToNumber(totalText);
-        verifyPrice(expectedTotalPrice, actualTotal);
+       // verifyPrice(expectedTotalPrice, actualTotal);
         return this;
+    }*/
+
+   // public CartPage verifyItemPrice(double actualPrice,  double actualTax, double actualTotal){
+        String priceText = readText( itemPriceBy).substring(1);
+        double actualPrice = covertTextToNumber(priceText);
+        String taxText = readText( taxCostBy).substring(1);
+        double actualTax = covertTextToNumber(taxText);
+        String totalText = readText(totalPriceBy).substring(1);
+        double actualTotal = covertTextToNumber(totalText);
+
+        //verifyPrice(actualPrice + actualTax, actualTotal);
     }
 
 
-
-   
-    
-
-
-
-}

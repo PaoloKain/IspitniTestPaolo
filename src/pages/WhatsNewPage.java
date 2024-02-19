@@ -13,9 +13,6 @@ public class WhatsNewPage extends BasePage {
     
     public void openProductDetailsPage(){
         clickElement(itemBtnBy);
-       
-       
-        
     }
 }
 

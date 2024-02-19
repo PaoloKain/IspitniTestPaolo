@@ -18,9 +18,9 @@ public class BasePage {
 
     public BasePage(WebDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+       
     }
 
      public void waitElementToBeVisible(By elementBy){

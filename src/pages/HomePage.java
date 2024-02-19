@@ -64,10 +64,18 @@ public class HomePage extends BasePage {
     
     }
 
-    public HomePage logout(){
+    public HomePage extendUsernameMenu(){
        clickElement(expandUserMenuBtnBy);
-       clickElement(signOutBtnBy);
-       
+       return this;
+    }
+
+    public HomePage logout(){
+        clickElement(signOutBtnBy);
+        return this;
+    }
+
+    public HomePage verifySuccessfulLogout(){
+        verifyElementIsVisible(signInBtnBy);
         return this;
     }
 
