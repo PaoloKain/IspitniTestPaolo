@@ -8,61 +8,61 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    //By addTaxBtnBy = By.id("s_method_flatrate_flatrate");
-   // By extendShippingAndTaxOptionBtnBy = By.xpath("//*[@id=\"block-shipping\"]/div[1]");
-    By addTaxBtnBy = By.xpath("//*[@id=\"co-shipping-method-form\"]/fieldset/dl/dd[2]/div/label");
-    //By extendShippingAndTaxOptionBtnBy = By.xpath("//*[@id=\"block-shipping-heading\"]");
+    By extendShippingAndTaxOptionBtnBy = By.xpath("//div[@id='block-shipping']");
+    By subTotalItemPriceBy = By.xpath("//*[@id=\"cart-totals\"]/div/table/tbody/tr[1]/td/span");    
+    By flatRateFixedPriceBy = By.xpath("/html/body/div[2]/main/div[3]/div/div[3]/div[1]/div[1]/div[2]/form[2]/fieldset/dl/dd[2]/div/label/span/span");
+    By orderTotalPriceBy = By.xpath("/html/body/div[2]/main/div[3]/div/div[3]/div[1]/div[2]/div/table/tbody/tr[3]/td/strong/span");
+   
 
-    By extendShippingAndTaxOptionBtnBy = By.cssSelector("#block-shipping > div:nth-child(1)");
+
+   
+
+    public CartPage verifySubtotalPriceAndFinalTotalPrice(){
+
+        try{
+            Thread.sleep(3000);
+            }    catch(InterruptedException e){
+                e.printStackTrace();
+            }
+
+            clickElement(extendShippingAndTaxOptionBtnBy);
+
+
+        
     
-    By itemPriceBy = By.xpath("//*[@id=\"cart-totals\"]/div/table/tbody/tr[1]/td/span");    
-    By taxCostBy = By.xpath("//*[@id=\"cart-totals\"]/div/table/tbody/tr[2]/td/span");
-   // By taxCostBy = By.cssSelector(null);
-    By totalPriceBy = By.xpath("//*[@id=\"cart-totals\"]/div/table/tbody/tr[3]/td/strong/span");
 
-    
-    public CartPage extendShippingAndTaxOption(){
-        clickElement(extendShippingAndTaxOptionBtnBy);
-        return this;
+
+        String subTotalPriceText;
+        subTotalPriceText = readText(subTotalItemPriceBy).substring(1);
+        double convertedActualSubTotalPrice;
+         convertedActualSubTotalPrice = covertTextToNumber(subTotalPriceText);
+       
+        String flatRateFixedText;
+        flatRateFixedText = readText(flatRateFixedPriceBy).substring(1);
+        double convertedActualFlatRateFixedPrice;
+        convertedActualFlatRateFixedPrice = covertTextToNumber(flatRateFixedText);
+
+        double actualSubTotalPrice;
+        actualSubTotalPrice = convertedActualSubTotalPrice + convertedActualFlatRateFixedPrice;
+
+        clickElement(flatRateFixedPriceBy);
+
+       // try{
+           // Thread.sleep(3000);
+          //  }    catch(InterruptedException e){
+              //  e.printStackTrace();
+          //  }
+
+            String orderTotalPriceText;
+            orderTotalPriceText = readText(orderTotalPriceBy).substring(1);
+            double convertedActualOrderTotalPrice;
+            convertedActualOrderTotalPrice = covertTextToNumber(orderTotalPriceText);
+
+            verifyPrice(actualSubTotalPrice, convertedActualOrderTotalPrice);
+            return this;
+        }
     }
 
-    public CartPage addTax(){
-        clickElement(addTaxBtnBy);
-        return this;
-    }
-
-/* 
-   public CartPage verifyItemPrice(double expectedItemPrice){
-        String priceText = readText( itemPriceBy).substring(1);
-        double actualPrice = covertTextToNumber(priceText);
-       // verifyPrice(expectedItemPrice, actualPrice);
-        return this;
-    }
-    
-    public CartPage verifyTax(double expectedTax){ 
-        verifyElementIsVisible(taxCostBy);  
-        String taxText = readText( taxCostBy).substring(1);
-        double actualTax = covertTextToNumber(taxText);
-        //verifyPrice(expectedTax, actualTax);
-        return this;
-    }
-
-    public CartPage verifyTotalPrice(double expectedTotalPrice){
-        String totalText = readText(totalPriceBy).substring(1);
-        double actualTotal = covertTextToNumber(totalText);
-       // verifyPrice(expectedTotalPrice, actualTotal);
-        return this;
-    }*/
-
-   // public CartPage verifyItemPrice(double actualPrice,  double actualTax, double actualTotal){
-        String priceText = readText( itemPriceBy).substring(1);
-        double actualPrice = covertTextToNumber(priceText);
-        String taxText = readText( taxCostBy).substring(1);
-        double actualTax = covertTextToNumber(taxText);
-        String totalText = readText(totalPriceBy).substring(1);
-        double actualTotal = covertTextToNumber(totalText);
-
-        //verifyPrice(actualPrice + actualTax, actualTotal);
-    }
+ 
 
 
