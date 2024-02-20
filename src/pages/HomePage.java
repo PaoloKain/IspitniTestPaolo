@@ -17,9 +17,9 @@ public class HomePage extends BasePage {
     By customerNameBtnBy = By.xpath("//span[@class='customer-name']");
     By logoutBtnBy = By.xpath("//a[@href='https://magento.softwaretestingboard.com/customer/account/logout/']");
     By whatsNewBtnBy = By.id("ui-id-3");
-    By expandUserMenuBtnBy = By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/span/button");
+    By expandUserMenuBtnBy = By.xpath("//*[@id=\"store.links\"]/ul/li[2]/span/button");
     By signOutBtnBy = By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/div/ul/li[3]/a");
-   
+    
     public HomePage goToHomePage(){
         driver.get(baseUrl);
         return this;
@@ -52,12 +52,6 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage expandCustomerNameOption(){
-     clickElement(customerNameBtnBy);
-     clickElement(logoutBtnBy);
-        return this;
-    }
-
     public HomePage navigateToWhatsNewPage(){
         clickElement(whatsNewBtnBy);
         return this;
@@ -66,9 +60,12 @@ public class HomePage extends BasePage {
 
     public HomePage extendUsernameMenu(){
        clickElement(expandUserMenuBtnBy);
+
+
        return this;
     }
 
+   
     public HomePage logout(){
         clickElement(signOutBtnBy);
         return this;
@@ -77,7 +74,7 @@ public class HomePage extends BasePage {
     public HomePage verifySuccessfulLogout(){
         verifyElementIsVisible(signInBtnBy);
         return this;
-    }
+   }
 
     
 

@@ -28,22 +28,15 @@ public class CartPage extends BasePage {
             clickElement(extendShippingAndTaxOptionBtnBy);
 
 
-        
-    
-
-
-        String subTotalPriceText;
-        subTotalPriceText = readText(subTotalItemPriceBy).substring(1);
-        double convertedActualSubTotalPrice;
-         convertedActualSubTotalPrice = covertTextToNumber(subTotalPriceText);
+        String subTotalPriceText = readText(subTotalItemPriceBy).substring(1);
+        double actualSubTotalPriceNumber = covertTextToNumber(subTotalPriceText);
        
-        String flatRateFixedText;
-        flatRateFixedText = readText(flatRateFixedPriceBy).substring(1);
-        double convertedActualFlatRateFixedPrice;
-        convertedActualFlatRateFixedPrice = covertTextToNumber(flatRateFixedText);
+        
+        String flatRateFixedText = readText(flatRateFixedPriceBy).substring(1);
+        double actualFlatRateFixedPriceNumber = covertTextToNumber(flatRateFixedText);
 
         double actualSubTotalPrice;
-        actualSubTotalPrice = convertedActualSubTotalPrice + convertedActualFlatRateFixedPrice;
+        actualSubTotalPrice = actualSubTotalPriceNumber + actualFlatRateFixedPriceNumber;
 
         clickElement(flatRateFixedPriceBy);
 
@@ -53,12 +46,11 @@ public class CartPage extends BasePage {
               //  e.printStackTrace();
           //  }
 
-            String orderTotalPriceText;
-            orderTotalPriceText = readText(orderTotalPriceBy).substring(1);
-            double convertedActualOrderTotalPrice;
-            convertedActualOrderTotalPrice = covertTextToNumber(orderTotalPriceText);
+            
+            String orderTotalPriceText = readText(orderTotalPriceBy).substring(1);
+            double actualOrderTotalPrice = covertTextToNumber(orderTotalPriceText);
 
-            verifyPrice(actualSubTotalPrice, convertedActualOrderTotalPrice);
+            verifyPrice(actualSubTotalPrice, actualOrderTotalPrice);
             return this;
         }
     }
