@@ -31,7 +31,7 @@ public class CartPageTest extends BaseTest {
          whatsNewPage.openProductDetailsPage();
          productDetailsPage.addItemToCart();
          productDetailsPage.navigateToCartPage();
-         cartPage.verifySubtotalPriceAndFinalTotalPrice();
+         cartPage.verifySubtotalPriceAndOrderTotalPrice();
         
     }
 }

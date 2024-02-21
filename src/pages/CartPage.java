@@ -17,7 +17,7 @@ public class CartPage extends BasePage {
 
    
 
-    public CartPage verifySubtotalPriceAndFinalTotalPrice(){
+    public CartPage verifySubtotalPriceAndOrderTotalPrice(){
 
         try{
             Thread.sleep(3000);
@@ -40,15 +40,8 @@ public class CartPage extends BasePage {
 
         clickElement(flatRateFixedPriceBy);
 
-       // try{
-           // Thread.sleep(3000);
-          //  }    catch(InterruptedException e){
-              //  e.printStackTrace();
-          //  }
-
-            
-            String orderTotalPriceText = readText(orderTotalPriceBy).substring(1);
-            double actualOrderTotalPrice = covertTextToNumber(orderTotalPriceText);
+        String orderTotalPriceText = readText(orderTotalPriceBy).substring(1);
+        double actualOrderTotalPrice = covertTextToNumber(orderTotalPriceText);
 
             verifyPrice(actualSubTotalPrice, actualOrderTotalPrice);
             return this;

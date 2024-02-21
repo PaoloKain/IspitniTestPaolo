@@ -88,7 +88,6 @@ public class CustomerLoginTest extends BaseTest {
         homePage.goToHomePage();
         homePage.navigateToCustomerLoginPage();
         customerLoginPage.login(validEmail, validPassword);
-        homePage.extendUsernameMenu();
         homePage.logout();
         homePage.verifySuccessfulLogout();
     }
