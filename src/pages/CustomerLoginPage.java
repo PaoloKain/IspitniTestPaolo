@@ -61,8 +61,5 @@ public class CustomerLoginPage extends BasePage {
         return this;
     }
 
-    public CustomerLoginPage verifySuccessfulLogout(){
-        verifyElementIsVisible(signInBtnBy);
-        return this;
-    }
+  
 }
